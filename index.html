@@ -24,7 +24,7 @@
             transform: translateY(-50%) translateX(-50%);
             -webkit-transform: translateY(-50%) translateX(-50%);
         }
-         #diff {
+         #difftime {
             font-size: 4em;
             color: #191970;
             position: absolute;
@@ -39,7 +39,7 @@
 
     <div id="sentence">NictJST + 0.3s</div>
     <div id="clock"></div>
-    <div id="diff"></div>
+    <div id="difftime"></div>
         
     </div>
     <script>
@@ -48,8 +48,9 @@
             const json = await (await fetch('https://3fe5a5f690efc790d4764f1c528a4ebb89fa4168.nict.go.jp/cgi-bin/json')).json();
             const receiveTime = new Date().getTime();
             const serverTime = json.st * 1000 + (receiveTime - sendTime) / 2;
+            const difftime = receiveTime - sendTime;
             const diff = serverTime - receiveTime;
-            document.getElementById('diff').innerText = diff;
+            document.getElementById('difftime').innerText = difftime;
             setInterval(() => {
                 const date = new Date(Date.now() + diff + 300);
                 const hour = ('0' + date.getHours()).slice(-2);
