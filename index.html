@@ -24,12 +24,21 @@
             transform: translateY(-50%) translateX(-50%);
             -webkit-transform: translateY(-50%) translateX(-50%);
         }
+        #diff {
+            font-size: 10em;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-10%) translateX(-50%);
+            -webkit-transform: translateY(-50%) translateX(-50%);
+        }
     </style>
 </head>
 <body>
 
     <div id="sentence">receiveTime - sendTime</div>
     <div id="clock">
+    <div id="diff">
         
     </div>
     <script>
@@ -39,7 +48,7 @@
             const receiveTime = new Date().getTime();
             const serverTime = json.st * 1000 + (receiveTime - sendTime) / 2;
             const diff = receiveTime - sendTime
-            document.getElementById('diff').innerText = `${hour}:${minute}:${second}.${milliSecond}`;
+            document.getElementById('diff').innerText = diff;
             setInterval(() => {
                 const date = new Date(Date.now() + diff);
                 const hour = ('0' + date.getHours()).slice(-2);
