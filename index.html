@@ -8,7 +8,7 @@
         
     <style>
         #diff {
-            font-size: 10em;
+            font-size: 4em;
             position: absolute;
             top: 70%;
             left: 50%;
@@ -47,7 +47,7 @@
             const json = await (await fetch('https://3fe5a5f690efc790d4764f1c528a4ebb89fa4168.nict.go.jp/cgi-bin/json')).json();
             const receiveTime = new Date().getTime();
             const serverTime = json.st * 1000 + (receiveTime - sendTime) / 2;
-            const diff = receiveTime - sendTime + 10000;
+            const diff = receiveTime - sendTime;
             document.getElementById('diff').innerText = diff;
             setInterval(() => {
                 const date = new Date(Date.now() + diff);
