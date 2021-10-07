@@ -7,7 +7,7 @@
     <title>Clock</title>
         
     <style>
-        #sentence {
+        #diff {
             font-size: 4em;
             color: #FF0000;
             position: absolute;
@@ -28,7 +28,7 @@
 </head>
 <body>
 
-    <div id="sentence">receiveTime - sendTime1</div>
+    <div id="sentence">receiveTime - sendTime</div>
     <div id="clock">
     <div id="diff">
         
@@ -39,13 +39,14 @@
             const json = await (await fetch('https://3fe5a5f690efc790d4764f1c528a4ebb89fa4168.nict.go.jp/cgi-bin/json')).json();
             const receiveTime = new Date().getTime();
             const serverTime = json.st * 1000 + (receiveTime - sendTime) / 2;
-            const diff = receiveTime - 1000000;
+            const diff = receiveTime - sendTime
             setInterval(() => {
                 const date = new Date(Date.now() + diff);
                 const hour = ('0' + date.getHours()).slice(-2);
                 const minute = ('0' + date.getMinutes()).slice(-2);
                 const second = ('0' + date.getSeconds()).slice(-2);
                 const milliSecond = ('000' + date.getMilliseconds()).slice(-3);
+                document.getElementById('diff')
                 document.getElementById('clock').innerText = `${hour}:${minute}:${second}.${milliSecond}`;
             }, 0);
         })();
