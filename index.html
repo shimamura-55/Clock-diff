@@ -38,7 +38,7 @@
 
     <div id="sentence">NictJST + 0.3s</div>
     <div id="clack">
-    <div id="diffdate">
+    <div id="diff">
     
     </div>
     <script>
@@ -48,8 +48,7 @@
             const receiveTime = new Date().getTime();
             const serverTime = json.st * 1000 + (receiveTime - sendTime) / 2;
             const diff = receiveTime - sendTime;
-            const diffdate = receiveTime - sendTime;
-            document.getElementById('diffdata').innerText = diffdate;
+            document.getElementById('diff').innerText = diff;
             setInterval(() => {
                 const date = new Date(Date.now() + diff);
                 const hour = ('0' + date.getHours()).slice(-2);
