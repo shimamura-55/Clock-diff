@@ -25,7 +25,7 @@
             -webkit-transform: translateY(-50%) translateX(-50%);
         }
          #diff {
-            font-size: 1em;
+            font-size: 3em;
             position: absolute;
             top: 70%;
             left: 50%;
@@ -48,6 +48,7 @@
             const receiveTime = new Date().getTime();
             const serverTime = json.st * 1000 + (receiveTime - sendTime) / 2;
             const diff = serverTime - receiveTime + 300;
+            document.getElementById('diff').innerText
             setInterval(() => {
                 const date = new Date(Date.now() + diff);
                 const hour = ('0' + date.getHours()).slice(-2);
