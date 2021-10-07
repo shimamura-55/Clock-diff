@@ -40,14 +40,7 @@
             const receiveTime = new Date().getTime();
             const serverTime = json.st * 1000 + (receiveTime - sendTime) / 2;
             const diff = receiveTime - sendTime
-            setInterval(() => {
-                const date = new Date(Date.now() + diff);
-                const hour = ('0' + date.getHours()).slice(-2);
-                const minute = ('0' + date.getMinutes()).slice(-2);
-                const second = ('0' + date.getSeconds()).slice(-2);
-                const milliSecond = ('000' + date.getMilliseconds()).slice(-3);
-                document.getElementById('clock').innerText = `${hour}:${minute}:${second}.${milliSecond}`;
-            }, 0);
+
         })();
         
     </script>
